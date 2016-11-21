@@ -9,13 +9,14 @@ class Node(object):
         """Initialize this node with the given data"""
         self.data = data
         self.next = None
+        self.previous = None
 
     def __repr__(self):
         """Return a string representation of this node"""
         return 'Node({})'.format(repr(self.data))
 
 
-class LinkedList(object):
+class DoublyLinkedList(object):
 
     def __init__(self, iterable=None):
         """Initialize this linked list; append the given items, if any"""
@@ -63,6 +64,7 @@ class LinkedList(object):
             self.tail = node
         else:
             self.tail.next = node
+            self.tail.next.previous = self.tail # WORKS???
             self.tail = node
         return
 
@@ -77,6 +79,7 @@ class LinkedList(object):
         else:
             node.next = self.head
             self.head = node
+            self.head.next.previous = self.head # WORKS???
         return True
 
     def delete(self, item):
@@ -92,6 +95,7 @@ class LinkedList(object):
         if current.data == item:
             if current.next is not None:
                 self.head = current.next
+                self.head.previous = None # WORKS???
             else:
                 self.head = None
                 self.tail = None
@@ -102,6 +106,7 @@ class LinkedList(object):
                 newNext = current.next.next
                 if newNext is not None:
                     current.next = newNext
+                    current.next.previous = current # WORKS???
                 else:
                     current.next = None
                     self.tail = current
@@ -135,18 +140,11 @@ class LinkedList(object):
             yield current
             current = current.next
 
-        # myList = []
-        # current = self.head
-        # while current is not None:
-        #     myList.append(current)
-        #     current = current.next
-        # return iter(myList)
-
 
 def test_linked_list():
     # Test appending
     print("Testing Appending")
-    ll = LinkedList()
+    ll = DoublyLinkedList()
     print(ll)
     ll.append('A')
     print(ll)
