@@ -134,7 +134,6 @@ class DoublyLinkedList(object):
         return False
 
     def __iter__(self):
-
         current = self.head
         while current is not None:
             yield current
@@ -175,11 +174,10 @@ def test_linked_list():
     ll.append('c')
     ll.append('wow')
     for item in ll:
-        print(item)
-
-    # Test contains
-    if 'f' in ll:
-        print("C IS IN LL BABY")
+        print("item: ", item)
+        print("next: ", item.next)
+        print("prev: ", item.previous)
+        print("\n")
 
 
 if __name__ == '__main__':

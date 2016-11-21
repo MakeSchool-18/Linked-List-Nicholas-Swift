@@ -1,6 +1,7 @@
 #!python
 
 from linkedlist import LinkedList, Node
+from doublylinkedlist import DoublyLinkedList, Node
 import unittest
 
 
@@ -16,7 +17,8 @@ class NodeTest(unittest.TestCase):
 class LinkedListTest(unittest.TestCase):
 
     def test_init(self):
-        ll = LinkedList()
+        #ll = LinkedList()
+        ll = DoublyLinkedList()
         assert ll.head is None
         assert ll.tail is None
 
