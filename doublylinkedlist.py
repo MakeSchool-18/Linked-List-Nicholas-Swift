@@ -64,7 +64,7 @@ class DoublyLinkedList(object):
             self.tail = node
         else:
             self.tail.next = node
-            self.tail.next.previous = self.tail # WORKS???
+            self.tail.next.previous = self.tail
             self.tail = node
         return
 
@@ -79,7 +79,7 @@ class DoublyLinkedList(object):
         else:
             node.next = self.head
             self.head = node
-            self.head.next.previous = self.head # WORKS???
+            self.head.next.previous = self.head
         return True
 
     def delete(self, item):
@@ -95,7 +95,7 @@ class DoublyLinkedList(object):
         if current.data == item:
             if current.next is not None:
                 self.head = current.next
-                self.head.previous = None # WORKS???
+                self.head.previous = None
             else:
                 self.head = None
                 self.tail = None
@@ -106,7 +106,7 @@ class DoublyLinkedList(object):
                 newNext = current.next.next
                 if newNext is not None:
                     current.next = newNext
-                    current.next.previous = current # WORKS???
+                    current.next.previous = current
                 else:
                     current.next = None
                     self.tail = current
@@ -174,9 +174,9 @@ def test_linked_list():
     ll.append('c')
     ll.append('wow')
     for item in ll:
+        print("prev: ", item.previous)
         print("item: ", item)
         print("next: ", item.next)
-        print("prev: ", item.previous)
         print("\n")
 
 

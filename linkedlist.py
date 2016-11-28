@@ -129,18 +129,11 @@ class LinkedList(object):
         return False
 
     def __iter__(self):
-
+        """Iterate through the linked list"""
         current = self.head
         while current is not None:
             yield current
             current = current.next
-
-        # myList = []
-        # current = self.head
-        # while current is not None:
-        #     myList.append(current)
-        #     current = current.next
-        # return iter(myList)
 
 
 def test_linked_list():
@@ -180,7 +173,7 @@ def test_linked_list():
         print(item)
 
     # Test contains
-    if 'f' in ll:
+    if 'c' in ll:
         print("C IS IN LL BABY")
 
 
